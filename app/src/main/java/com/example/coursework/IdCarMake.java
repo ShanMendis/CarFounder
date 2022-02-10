@@ -53,7 +53,7 @@ public class IdCarMake extends AppCompatActivity {
 
     public void addRandomImage() {
         Random random = new Random();
-        int randomImage = random.nextInt(carImages.size()-1);//random image
+        int randomImage = random.nextInt(carImages.size() - 1);//random image
         imgCarMake.setImageResource(carImages.get(randomImage));
 
 
@@ -70,9 +70,6 @@ public class IdCarMake extends AppCompatActivity {
     }
 
 
-
-
-
     public void addCarBrands() {
         //add name for array list
         this.carBrandList.add("toyota");
@@ -87,7 +84,7 @@ public class IdCarMake extends AppCompatActivity {
         this.carBrandList.add("bmw");
     }
 
-    public void addCarImages(){
+    public void addCarImages() {
         //add images for array list
         carImages.add(R.drawable.porsche1);
         carImages.add(R.drawable.porsche2);
@@ -131,6 +128,8 @@ public class IdCarMake extends AppCompatActivity {
             //get tag from image and assign to string
             String imageTag = getResources().getResourceName((Integer) imgCarMake.getTag());
 
+            System.out.println(imageTag);
+
             //looking for same name and same image(selected)
             if (imageTag.contains(spinnerText)) {
                 txtAnswer.setTextColor(Color.GREEN);
@@ -140,13 +139,15 @@ public class IdCarMake extends AppCompatActivity {
                 txtAnswer.setTextColor(Color.RED);
                 txtAnswer.setText("W r o n g ❌");
 
-                txtCorrectAnswer.setText("It's a " );
-            //after identifying button rename as next
-            btnNext.setText("NEXT");
-            txtCorrectAnswer.setTextColor(Color.BLACK);
-        }
+                String imgtag = imageTag.substring(imageTag.lastIndexOf("/") + 1);
+                String imgtag1 = imgtag.substring(0, imgtag.length() - 1);
+                txtCorrectAnswer.setText("It's a " + imgtag1);
+                //after identifying button rename as next
+                btnNext.setText("NEXT");
+                txtCorrectAnswer.setTextColor(Color.BLACK);
+            }
         } else {
-           // again Identify
+            // again Identify
             btnNext.setText("IDENTIFY");
             txtAnswer.setText("");
             txtCorrectAnswer.setText("");

@@ -51,11 +51,11 @@ public class IdCarImage extends AppCompatActivity {
 
         while (true) {
 
-                int randomImage1 = random.nextInt(carImages.size()-1);//random image
+            int randomImage1 = random.nextInt(carImages.size() - 1);//random image
 
-                int randomImage2 = random.nextInt(carImages.size()-1);//random image
+            int randomImage2 = random.nextInt(carImages.size() - 1);//random image
 
-                int randomImage3 = random.nextInt(carImages.size()-1);//random image
+            int randomImage3 = random.nextInt(carImages.size() - 1);//random image
 
             if (randomImage1 == randomImage2 || randomImage1 == randomImage3 || randomImage2 == randomImage3) {
                 continue;
@@ -142,7 +142,9 @@ public class IdCarImage extends AppCompatActivity {
         addRandomImage();
     }
 
-                /**Clickable image*/
+    /**
+     * Clickable image
+     */
     public void onClickImage(View view) {
         String s = getResources().getResourceName((Integer) view.getTag());
 
@@ -171,7 +173,7 @@ public class IdCarImage extends AppCompatActivity {
 
     }
 
-    public void addCarImages(){
+    public void addCarImages() {
 
         carImages.add(R.drawable.porsche1);
         carImages.add(R.drawable.porsche2);
